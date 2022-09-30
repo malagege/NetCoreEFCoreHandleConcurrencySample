@@ -38,7 +38,7 @@ namespace NetCoreEFCoreHandleConcurrencySample.Controllers
         public IActionResult IncStudentAge(int? id)
         {
             var std = _dbcontext.Students.FirstOrDefault(s => s.StudentId == id);
-            std.RowVersion++;
+            //std.RowVersion++;
             std.StudentAge++;
             _dbcontext.SaveChanges();
 
