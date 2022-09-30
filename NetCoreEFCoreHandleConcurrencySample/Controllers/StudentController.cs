@@ -17,16 +17,18 @@ namespace NetCoreEFCoreHandleConcurrencySample.Controllers
         public IActionResult NewData()
         {
             // [DbContext 的存留期、設定與初始化 - EF Core | Microsoft Learn](https://learn.microsoft.com/zh-tw/ef/core/dbcontext-configuration/#simple-dbcontext-initialization-with-new)
-                
+
             var std = new Student()
             {
-                StudentName = "Bill"
+                StudentName = "Bill",
+                StudentAge = 18,
             };
 
             _dbcontext.Students.Add(std);
             _dbcontext.SaveChanges();
 
-            std.StudentName = "Steve";
+            // std.StudentName = "Steve";
+            std.StudentAge = 20;
             _dbcontext.SaveChanges();
 
             return Json(std);

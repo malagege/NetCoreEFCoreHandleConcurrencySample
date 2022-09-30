@@ -8,5 +8,7 @@ namespace NetCoreEFCoreHandleConcurrencySample.Models
 
         [ConcurrencyCheck]
         public string? StudentName { get; set; }
+
+        public int StudentAge { get; set; }
     }
 }
