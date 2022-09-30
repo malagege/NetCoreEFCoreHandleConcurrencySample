@@ -33,5 +33,16 @@ namespace NetCoreEFCoreHandleConcurrencySample.Controllers
 
             return Json(std);
         }
+
+        [HttpGet(nameof(IncStudentAge))]
+        public IActionResult IncStudentAge(int? id)
+        {
+            var std = _dbcontext.Students.FirstOrDefault(s => s.StudentId == id);
+            std.RowVersion++;
+            std.StudentAge++;
+            _dbcontext.SaveChanges();
+
+            return Json(std);
+        }
     }
 }

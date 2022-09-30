@@ -6,9 +6,11 @@ namespace NetCoreEFCoreHandleConcurrencySample.Models
     {
         public int StudentId { get; set; }
 
-        [ConcurrencyCheck]
         public string? StudentName { get; set; }
 
         public int StudentAge { get; set; }
+
+        [ConcurrencyCheck]
+        public int RowVersion { get; set; }
     }
 }
